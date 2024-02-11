@@ -1,0 +1,16 @@
+版本：V1.0.0
+更新日期：2024年1月30日
+作者：pexlor
+
+代码修改说明：
+	这是一款支持DBC格式和EXCEL格式相互转换的软件，由于不同项目的初始EXCEL格式不同，所以在使用新项目中使用时需要修改代码。
+	本人水平较菜，已经尽可能设计代码架构方便日后的修改，也写了一些注释方便阅读。代码中多是对字符串的操作，整体比较简单。
+	UI界面部分：略
+	DBC转EXCEL：主要需要读懂dbc文件的内容，参考：https://blog.csdn.net/u010808702/article/details/104152745
+		       对EXCEL的操作我进行了一些封装，使用QAxObject库来连接电脑上的EXCEL，具体可参考windows的手册
+		        对于dbc文件中的一些信息（报文，信号，属性等），在message_and_singal.h文件中封装为结构体。
+	EXCEL转DBC：首先会读取EXCEL，但由于每个项目的EXCEl顺序不同，所以需要修改读取的顺序，在Dbc_Analyse（）函数中修改
+		       ReadMessageOrder和ReadSingalOrder两个数组，具体的值在代码注释中写的有，需要添加新的读取功能，在SetInfo（）
+		       函数中添加即可。
+
+		
